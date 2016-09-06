@@ -75,10 +75,10 @@
 	 *                                      	}
 	 *                               	}
 	 */
-	WikitudePlugin.prototype.loadARchitectWorld = function(successCallback, errorCallback, architectWorldPath, requiredFeatures, startupConfiguration) {
+	WikitudePlugin.prototype.loadARchitectWorld = function(successCallback, errorCallback, architectWorldPath, requiredFeatures, startupConfiguration, _sdkKey) {
 
 		cordova.exec(successCallback, errorCallback, "WikitudePlugin", "open", [{
-			"SDKKey": this._sdkKey,
+			"SDKKey": this._sdkKey != "ENTER-YOUR-KEY-HERE" ? this._sdkKey : _sdkKey,
 			"ARchitectWorldURL": architectWorldPath,
 			"RequiredFeatures": requiredFeatures,
 		    "StartupConfiguration" : startupConfiguration
